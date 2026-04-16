@@ -1,0 +1,11 @@
+# Binaries
+ssl-tools.exe
+ssl-tools-linux
+ssl-tools-darwin
+
+# Output files
+output/
+
+# Go build cache
+*.test
+*.out
