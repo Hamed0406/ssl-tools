@@ -36,7 +36,7 @@ func printUsage() {
 	fmt.Println("  ssl-tools <command> [arguments]")
 	fmt.Println("")
 	fmt.Println("Commands:")
-	fmt.Println("  check <file>     Analyze a certificate file (.pem or .cer)")
-	fmt.Println("  host <hostname>  Check TLS certificate chain from a live host")
+	fmt.Println("  check <file> [--json] [--quiet]     Analyze a certificate file (.pem or .cer)")
+	fmt.Println("  host <hostname> [--json] [--quiet] [--servername <name>] [--timeout <duration>] [--proxy <url>]  Check TLS certificate chain from a live host")
 	fmt.Println("  version          Print version")
 }

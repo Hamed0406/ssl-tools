@@ -6,7 +6,7 @@ A command-line tool written in Go for analyzing SSL/TLS certificates — from lo
 
 ## Features
 
-- 🔍 Analyze local certificate files (`.pem`, `.cer`)
+- 🔍 Analyze local certificate files (`.pem`, `.cer`), including full PEM chains
 - 🌐 Connect to a live host and inspect the full TLS certificate chain
 - 📋 Displays subject, issuer, validity, key type, SANs, and fingerprints
 - ⚠️  Flags expired or soon-to-expire certificates
@@ -36,8 +36,8 @@ go build -o ssl-tools ./cmd/ssl-tools
 ssl-tools <command> [arguments]
 
 Commands:
-  check <file>     Analyze a certificate file (.pem or .cer)
-  host <hostname>  Check TLS certificate chain from a live host
+  check <file> [--json] [--quiet]     Analyze a certificate file (.pem or .cer)
+  host <hostname> [--json] [--quiet] [--servername <name>] [--timeout <duration>] [--proxy <url>]  Check TLS certificate chain from a live host
   version          Print version
 ```
 
@@ -46,6 +46,8 @@ Commands:
 ```bash
 ssl-tools check mycert.pem
 ssl-tools check mycert.cer
+ssl-tools check mycert.pem --json
+ssl-tools check mycert.pem --quiet
 ```
 
 ### Check a live host
@@ -53,9 +55,16 @@ ssl-tools check mycert.cer
 ```bash
 ssl-tools host github.com
 ssl-tools host myserver.com:8443
+ssl-tools host github.com --json
+ssl-tools host github.com --quiet
+ssl-tools host 93.184.216.34 --servername example.com
+ssl-tools host google.com --timeout 30s
+ssl-tools host google.com --proxy http://proxy.company.local:8080 --timeout 60s
 ```
 
 > Defaults to port **443** if no port is specified.
+> Timeout defaults to **10s**. You can pass seconds (`30`) or duration values (`30s`, `1m`).
+> You can use `--proxy` for HTTP CONNECT proxies (or set `HTTPS_PROXY` / `https_proxy`).
 
 ---
 

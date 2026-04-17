@@ -6,10 +6,10 @@ Future suggestions for ssl-tools
 2. Support full PEM chains in files
    check currently parses only the first cert in a PEM file. Many .pem files contain a chain. Add a loop to parse all PEM blocks and print a chain (like the host command).
 
-3. Add --servername (SNI) override
+3. Add --servername (SNI) override ✅ implemented
    Some hosts require SNI to return the correct certificate. Allow: ssl-tools host <ip> --servername example.com.
 
-4. Add --timeout flag
+4. Add --timeout flag ✅ implemented
    Allow users to control network timeout instead of the fixed 10s in FetchFromHost.
 
 5. Add TLS verification option
