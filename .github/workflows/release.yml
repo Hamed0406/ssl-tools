@@ -61,7 +61,7 @@ jobs:
 
           mkdir -p "${OUTDIR}"
           GOOS="${{ matrix.goos }}" GOARCH="${{ matrix.goarch }}" \
-            go build -trimpath -ldflags "-s -w -X ssl-tools/internal/version.current=${TAG}" \
+            go build -trimpath -ldflags "-s -w -X github.com/Hamed0406/ssl-tools/internal/version.current=${TAG}" \
             -o "${OUTDIR}/${BINARY}" ./cmd/ssl-tools
 
           if [[ "${{ matrix.archive }}" == "zip" ]]; then

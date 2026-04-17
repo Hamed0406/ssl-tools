@@ -3,8 +3,8 @@ package cli
 import (
 	"fmt"
 
-	"ssl-tools/internal/app"
-	"ssl-tools/internal/version"
+	"github.com/Hamed0406/ssl-tools/internal/app"
+	"github.com/Hamed0406/ssl-tools/internal/version"
 )
 
 func Run(args []string) error {

@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"ssl-tools/internal/cert"
-	"ssl-tools/pkg/output"
+	"github.com/Hamed0406/ssl-tools/internal/cert"
+	"github.com/Hamed0406/ssl-tools/pkg/output"
 )
 
 func RunCheck(args []string) error {

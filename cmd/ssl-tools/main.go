@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"ssl-tools/internal/cli"
+	"github.com/Hamed0406/ssl-tools/internal/cli"
 )
 
 func main() {
