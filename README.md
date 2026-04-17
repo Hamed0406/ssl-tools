@@ -179,6 +179,27 @@ go test ./... -run TestName
 
 ---
 
+## CI/CD and Releases
+
+- CI runs automatically on pushes and pull requests to `main`/`master` (`.github/workflows/ci.yml`).
+- Release packaging runs on version tags like `v1.0.0` (`.github/workflows/release.yml`).
+- Release artifacts are uploaded to GitHub Releases for:
+  - Linux (`amd64`, `arm64`)
+  - macOS (`amd64`, `arm64`)
+  - Windows (`amd64`, `arm64`)
+- Each release also includes `sha256sums.txt`.
+
+### Create a release
+
+```bash
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+After tag push, GitHub Actions builds packages and publishes a Release with downloadable files.
+
+---
+
 ## Version
 
 Current version: `0.1.0`
